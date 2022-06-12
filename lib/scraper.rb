@@ -1,4 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-html = open("https://flatironschool.com/")
+doc = Nokogiri::HTML(URI.open("https://flatironschool.com/"))
+doc.css('.heading-20-semibold').each do |c|
+    puts c.text.strip
+end 
